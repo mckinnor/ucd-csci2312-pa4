@@ -19,7 +19,7 @@ namespace Gaming {
         Strategy *__strategy;
 
     public:
-        Strategic(const Game &g, const Position &p, double energy, Strategy *s = new DefaultAgentStrategy());
+        Strategic(const Game &g, const Position &p, double energy, Strategy *s);
         ~Strategic();
 
         PieceType getType() const override { return PieceType::STRATEGIC; }

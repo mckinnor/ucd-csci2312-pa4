@@ -46,7 +46,7 @@ void test_piece_smoketest(ErrorContext &ec) {
         Simple s(g, p0, 10);
 
         Position p1(1, 0);
-        Strategic t(g, p1, 20);
+        Strategic t(g, p1, 20, nullptr);
 
         Position p2(2, 2);
         Food f(g, p2, 5);
@@ -76,7 +76,7 @@ void test_piece_print(ErrorContext &ec, unsigned int numRuns) {
             Simple s(g, p0, 10);
 
             Position p1(1, 0);
-            Strategic t(g, p1, 20);
+            Strategic t(g, p1, 20, nullptr);
 
             Position p2(2, 2);
             Food f(g, p2, 5);
@@ -133,7 +133,7 @@ void test_piece_aging(ErrorContext &ec, unsigned int numRuns) {
             Simple s(g, p0, 10);
 
             Position p1(1, 0);
-            Strategic t(g, p1, 20);
+            Strategic t(g, p1, 20, nullptr);
 
             Position p2(2, 2);
             Food f(g, p2, 5);
@@ -158,7 +158,7 @@ void test_piece_aging(ErrorContext &ec, unsigned int numRuns) {
             Simple s(g, p0, 10);
 
             Position p1(1, 0);
-            Strategic t(g, p1, 20);
+            Strategic t(g, p1, 20, nullptr);
 
             Position p2(2, 2);
             Food f(g, p2, 5);
@@ -347,7 +347,7 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
             g.addFood(0, 0); g.addAdvantage(2, 1);
 
             // create a default Strategic, passing it the game and a position
-            Strategic s(g, Position(1, 1), Game::STARTING_AGENT_ENERGY);
+            Strategic s(g, Position(1, 1), Game::STARTING_AGENT_ENERGY, nullptr);
 
             // create an upcast pointer to the agent for polymorphic turn taking
             Piece *piece = &s;
@@ -377,7 +377,7 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
             g.addSimple(2, 0); g.addSimple(2, 1); g.addSimple(2, 2);
 
             // create a default Strategic, passing it the game and a position
-            Strategic s(g, Position(1, 1), Game::STARTING_AGENT_ENERGY);
+            Strategic s(g, Position(1, 1), Game::STARTING_AGENT_ENERGY, nullptr);
 
             // create an upcast pointer to the agent for polymorphic turn taking
             Piece *piece = &s;
@@ -412,7 +412,7 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
             g.addStrategic(2, 0); g.addStrategic(2, 1); g.addStrategic(2, 2);
 
             // create a default Strategic, passing it the game and a position
-            Strategic s(g, Position(1, 1), Game::STARTING_AGENT_ENERGY);
+            Strategic s(g, Position(1, 1), Game::STARTING_AGENT_ENERGY, nullptr);
 
             // create an upcast pointer to the agent for polymorphic turn taking
             Piece *piece = &s;
@@ -442,7 +442,7 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
             g.addStrategic(2, 0); g.addStrategic(2, 1); g.addStrategic(2, 2);
 
             // create a default Strategic, passing it the game and a position
-            Strategic s(g, Position(1, 1), Game::STARTING_AGENT_ENERGY);
+            Strategic s(g, Position(1, 1), Game::STARTING_AGENT_ENERGY, nullptr);
 
             // create an upcast pointer to the agent for polymorphic turn taking
             Piece *piece = &s;
@@ -472,8 +472,7 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
             g.addStrategic(2, 0); g.addStrategic(2, 1); g.addStrategic(2, 2);
 
             // create an aggressive Strategic, passing it the game and a position
-            Strategic s(g, Position(1, 1),
-                        Game::STARTING_AGENT_ENERGY,
+            Strategic s(g, Position(1, 1), Game::STARTING_AGENT_ENERGY,
                         new AggressiveAgentStrategy(Game::STARTING_AGENT_ENERGY));
 
             // create an upcast pointer to the agent for polymorphic turn taking
@@ -504,8 +503,7 @@ void test_piece_turntaking(ErrorContext &ec, unsigned int numRuns) {
             g.addFood(2, 1); g.addSimple(2, 2);
 
             // create an aggressive Strategic, passing it the game and a position
-            Strategic s(g, Position(1, 1),
-                        Game::STARTING_AGENT_ENERGY,
+            Strategic s(g, Position(1, 1), Game::STARTING_AGENT_ENERGY,
                         new AggressiveAgentStrategy(Game::STARTING_AGENT_ENERGY));
 
             // create an upcast pointer to the agent for polymorphic turn taking
@@ -575,7 +573,7 @@ void test_piece_interaction(ErrorContext &ec, unsigned int numRuns) {
             Game g;
 
             Simple s0(g, Position(2, 0), Game::STARTING_AGENT_ENERGY);
-            Strategic s1(g, Position(1, 1), Game::STARTING_AGENT_ENERGY);
+            Strategic s1(g, Position(1, 1), Game::STARTING_AGENT_ENERGY, nullptr);
 
             Piece *pieces[2] = { &s0, &s1 };
             Piece &p0 = *pieces[0], &p1 = *pieces[1];
@@ -592,7 +590,7 @@ void test_piece_interaction(ErrorContext &ec, unsigned int numRuns) {
             Game g;
 
             Simple s0(g, Position(2, 0), Game::STARTING_AGENT_ENERGY);
-            Strategic s1(g, Position(1, 1), Game::STARTING_AGENT_ENERGY * 1.1);
+            Strategic s1(g, Position(1, 1), Game::STARTING_AGENT_ENERGY * 1.1, nullptr);
 
             Piece *pieces[2] = { &s0, &s1 };
             Piece &p0 = *pieces[0], &p1 = *pieces[1];
@@ -608,7 +606,7 @@ void test_piece_interaction(ErrorContext &ec, unsigned int numRuns) {
             Game g;
 
             Food s0(g, Position(2, 0), Game::STARTING_RESOURCE_CAPACITY);
-            Strategic s1(g, Position(1, 1), Game::STARTING_AGENT_ENERGY * 1.1);
+            Strategic s1(g, Position(1, 1), Game::STARTING_AGENT_ENERGY * 1.1, nullptr);
 
             Piece *pieces[2] = { &s0, &s1 };
             Piece &p0 = *pieces[0], &p1 = *pieces[1];

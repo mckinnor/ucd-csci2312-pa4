@@ -13,7 +13,7 @@ namespace Gaming {
     protected:
         std::string __name;
         virtual void __print_args(std::ostream &os) const = 0;
-        void setName(std::string name);
+        void setName(std::string name){__name = name;}
     public:
         std::string getName() const { return __name; };
         friend std::ostream &operator<<(std::ostream &os, const GamingException &ex);
@@ -24,10 +24,10 @@ namespace Gaming {
         unsigned __exp_width, __exp_height, __width, __height;
     public:
         DimensionEx(unsigned expWidth, unsigned expHeight, unsigned width, unsigned height);
-        unsigned getExpWidth() const;
-        unsigned getExpHeight() const;
-        unsigned getWidth() const;
-        unsigned getHeight() const;
+        unsigned getExpWidth() const{ return  __exp_width;}
+        unsigned getExpHeight() const{return __exp_height;}
+        unsigned getWidth() const{return __width;}
+        unsigned getHeight() const{return __height;}
     };
 
     class InsufficientDimensionsEx : public DimensionEx {

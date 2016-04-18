@@ -56,11 +56,11 @@ namespace Gaming {
         // getters
         unsigned int getWidth() const { return __width; }
         unsigned int getHeight() const { return __height; }
-        unsigned int getNumPieces() const;
-        unsigned int getNumAgents() const;
+        unsigned int getNumPieces() const{return __numInitAgents + __numInitResources;}
+        unsigned int getNumAgents() const{return __numInitAgents;}
         unsigned int getNumSimple() const;
         unsigned int getNumStrategic() const;
-        unsigned int getNumResources() const;
+        unsigned int getNumResources() const{return __numInitResources;}
         Status getStatus() const { return __status; }
         unsigned int getRound() const { return __round; }
         const Piece *getPiece(unsigned int x, unsigned int y) const;

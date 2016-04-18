@@ -11,7 +11,7 @@
 namespace Gaming {
     class Advantage : public Resource {
     private:
-        static const char ADVANTAGE_ID;
+        static const char ADVANTAGE_ID = 'D';
 
     public:
         static const double ADVANTAGE_MULT_FACTOR;
